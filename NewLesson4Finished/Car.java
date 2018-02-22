@@ -8,20 +8,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Car extends Actor
 {
+    int speed = 5;
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-       move(5);
+       if(Greenfoot.isKeyDown("right")){
+           setRotation(0);
+           move(speed);
+       }
+       if(Greenfoot.isKeyDown("down")){
+           setRotation(90);
+           move(speed);
+       }
        if(Greenfoot.isKeyDown("left")){
-           turn(-10);
+           setRotation(180);
+           move(speed);
        }
-        if(Greenfoot.isKeyDown("right")){
-           turn(10);
+       if(Greenfoot.isKeyDown("up")){
+           setRotation(-90);
+           move(speed);
        }
-      removeTouching(Pizza.class);
+       removeTouching(Pizza.class);
     }    
     
 }
